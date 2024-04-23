@@ -1,0 +1,4 @@
+# detekt.yml
+exceptions:
+  SwallowedException:
+    active: false
