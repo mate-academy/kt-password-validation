@@ -20,7 +20,7 @@ class UserService {
             passwordValidator.validate(password, repeatPassword)
             saveUser(User(username, password))
         } catch (e: PasswordValidationException) {
-            "Your passwords are incorrect. Try again."
+            PASSWORD_ERROR_MESSAGE
         }
     }
 }
