@@ -11,6 +11,14 @@ class UserService {
     }
 
     fun registerUser(username: String, password: String, repeatPassword: String) : String {
+        val check = PasswordValidator()
+        val checkPasswords = kotlin.runCatching {
+            check.validate(password,repeatPassword)
+        }
 
+        checkPasswords.onFailure {
+            return "Your passwords are incorrect. Try again." }
+
+        return saveUser(User(username,password))
     }
 }
