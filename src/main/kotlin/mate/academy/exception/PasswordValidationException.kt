@@ -1,3 +1,3 @@
 package mate.academy.exception
 
-// Provide your code here for PasswordValidationException class
+class PasswordValidationException: Exception("Wrong passwords")
