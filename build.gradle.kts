@@ -20,12 +20,12 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(17)
 }
 
 detekt {
     buildUponDefaultConfig = true // preconfigure defaults
     allRules = false // activate all available (even unstable) rules.
-    config = files("$projectDir/detekt.yml") // allow to skip some style checks
-    baseline = file("$projectDir/config/baseline.xml") // a way of suppressing issues before introducing detekt
+    config.setFrom("$projectDir/detekt.yml") // allow to skip some style checks
+    baseline = project.file("$projectDir/config/baseline.xml") // a way of suppressing issues before introducing detekt
 }
