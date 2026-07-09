@@ -1,10 +1,12 @@
 package mate.academy
 
+import mate.academy.service.PasswordValidator
 import mate.academy.service.UserService
 
 // Test the UserService implementation
 fun main() {
-    val userService = UserService()
+    val passwordValidator = PasswordValidator()
+    val userService = UserService(passwordValidator)
 
     // Case where passwords are incorrect
     println(userService.registerUser("john_doe", "short", "short"))
