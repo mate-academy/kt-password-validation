@@ -1,3 +1,4 @@
 package mate.academy.exception
 
-// Provide your code here for PasswordValidationException class
+// Custom checked exception for password validation
+class PasswordValidationException(message: String) : Exception(message)
