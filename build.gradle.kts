@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.8.0"
+    kotlin("jvm") version "2.0.0"
     application
     id("io.gitlab.arturbosch.detekt") version "1.23.3"
 }
@@ -20,12 +20,11 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(17)
 }
 
 detekt {
     buildUponDefaultConfig = true // preconfigure defaults
     allRules = false // activate all available (even unstable) rules.
-    config = files("$projectDir/detekt.yml") // allow to skip some style checks
     baseline = file("$projectDir/config/baseline.xml") // a way of suppressing issues before introducing detekt
 }
