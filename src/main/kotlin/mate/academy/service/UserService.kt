@@ -1,9 +1,11 @@
 package mate.academy.service
 
+import mate.academy.exception.PasswordValidationException
 import mate.academy.model.User
 
 // This class represents a user service with user registration functionality
 class UserService {
+    private val validate = PasswordValidator()
 
     fun saveUser(user: User) : String {
         // This is where you would typically save the user to a database
@@ -11,6 +13,11 @@ class UserService {
     }
 
     fun registerUser(username: String, password: String, repeatPassword: String) : String {
-
+        return try {
+            validate.validate(password, repeatPassword)
+            (saveUser(User(username, password)))
+        } catch (e: PasswordValidationException) {
+            "Your passwords are incorrect. Try again."
+        }
     }
 }
