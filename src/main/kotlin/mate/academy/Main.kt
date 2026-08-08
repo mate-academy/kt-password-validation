@@ -2,7 +2,6 @@ package mate.academy
 
 import mate.academy.service.UserService
 
-// Test the UserService implementation
 fun main() {
     val userService = UserService()
 
@@ -14,3 +13,4 @@ fun main() {
     println(userService.registerUser("jane_doe", "correct_password", "correct_password"))
     // Output: User jane_doe saved successfully.
 }
+
