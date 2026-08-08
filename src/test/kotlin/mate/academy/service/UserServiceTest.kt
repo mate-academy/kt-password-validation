@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class UserServiceTest {
-    private val userService = UserService()
+    private val userService = UserService(passwordValidator = PasswordValidator())
 
     @Test
     fun testRegisterUser_validPasswordMatchingRepeat() {
