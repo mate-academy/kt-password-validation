@@ -1,8 +1,9 @@
 package mate.academy.service
 
-// This class will validate password requirements
+import mate.academy.exception.PasswordValidationException
+
 class PasswordValidator {
-    fun validate(password: String, repeatPassword: String) {
-        // write your code here
-    }
+    fun validate(password: String, repeatPassword: String) =
+        if (password != repeatPassword || password.length < 10)
+            throw PasswordValidationException("Wrong passwords") else true
 }
